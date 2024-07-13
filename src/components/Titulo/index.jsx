@@ -1,11 +1,7 @@
-import styles from "./Titulo.module.css";
+import styles from './Titulo.module.css';
 
 const Titulo = ({ children }) => {
-    return (
-        <div className={styles.texto}>
-            {children}
-        </div>
-    )
-}
+  return <div className={styles.texto}>{children}</div>;
+};
 
 export default Titulo;

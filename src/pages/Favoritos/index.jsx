@@ -5,7 +5,7 @@ import Card from 'components/Card';
 import useFavoritosContext from 'hook/useFavoritosContext';
 
 const Favoritos = () => {
-  const {favorito} = useFavoritosContext();
+  const { favorito } = useFavoritosContext();
 
   return (
     <>
@@ -19,7 +19,7 @@ const Favoritos = () => {
           titulo="gato"
           capa="https://api.thecatapi.com/api/images/get?format=src&ype=png"
         /> */}
-        {favorito.map(fav => {
+        {favorito.map((fav) => {
           return <Card {...fav} key={fav.id} />;
         })}
       </section>

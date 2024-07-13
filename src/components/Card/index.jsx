@@ -5,7 +5,7 @@ import iconNoFavorito from './iconNoFavorito.png';
 
 const Card = ({ id, capa, titulo }) => {
   const { favorito, agregarFavorito } = useFavoritosContext();
-  const isFavorito = favorito.some(fav => fav.id === id);
+  const isFavorito = favorito.some((fav) => fav.id === id);
   const icon = isFavorito ? iconFavorito : iconNoFavorito;
 
   return (

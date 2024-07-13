@@ -1,4 +1,4 @@
-import styles from "./Banner.module.css";
+import styles from './Banner.module.css';
 
 const Banner = ({ img, color }) => {
   return (

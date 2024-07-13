@@ -6,7 +6,7 @@ const useFavoritosContext = () => {
 
   function agregarFavorito(nuevoFavorito) {
     const favoritoRepetido = favorito.some(
-      (item) => item.id === nuevoFavorito.id
+      (item) => item.id === nuevoFavorito.id,
     );
     let nuevaLista = [...favorito];
     if (!favoritoRepetido) {
