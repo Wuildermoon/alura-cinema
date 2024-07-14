@@ -1,27 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inicio from 'pages/Inicio';
 import Favoritos from 'pages/Favoritos';
-import Cabecera from 'components/Cabecera';
-import Pie from 'components/Pie';
-import Container from 'components/Container';
-import FavoritoProvider from 'context/Favoritos';
-// const { BrowserRouter, Routes, Route } = require("react-router-dom");
-// const { default: Inicio } = require("pages/Inicio");
-// const Favoritos = require("pages/Favoritos");
+import Player from 'pages/Player';
+import NotFound from 'pages/NotFound';
+import PaginaBase from 'pages/PaginaBase';
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Cabecera />
-      <Container>
-        <FavoritoProvider>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/favoritos" element={<Favoritos />} />
-          </Routes>
-        </FavoritoProvider>
-      </Container>
-      <Pie />
+      <Routes>
+        <Route path="/" element={<PaginaBase />}>
+          <Route index element={<Inicio />} />
+          <Route path="favoritos" element={<Favoritos />} />
+          <Route path=":id" element={<Player />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

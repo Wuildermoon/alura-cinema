@@ -6,10 +6,6 @@
   background-color: var(--negro);
 }
 
-a {
-  text-decoration: none;
-}
-
 .logoContainer {
   height: 40px;
   display: flex;
