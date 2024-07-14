@@ -2,13 +2,25 @@ import Banner from 'components/Banner';
 import styles from './Player.module.css';
 import Titulo from 'components/Titulo';
 import { useParams } from 'react-router-dom';
-import videos from '../../data/db.json';
 import NotFound from 'pages/NotFound';
+import { useEffect, useState } from 'react';
 
 const Player = () => {
+  const [video, setVideo] = useState([]);
   const parametros = useParams();
-  const video = videos.find((video) => video.id === Number(parametros.id));
-  if (!video) return <NotFound />
+
+  useEffect(() => {
+    fetch(
+      `https://my-json-server.typicode.com/Wuildermoon/alura-cinema-api/videos?id=${parametros.id}`,
+    )
+      .then(response => response.json())
+      .then(data => {
+        setVideo(...data);
+      });
+  }, []);
+
+  // const video = videos.find((video) => video.id === Number(parametros.id));
+  if (!video) return <NotFound />;
 
   return (
     <>

@@ -2,9 +2,19 @@ import styles from './index.module.css';
 import Banner from 'components/Banner';
 import Titulo from 'components/Titulo';
 import Card from 'components/Card';
-import videos from '../../data/db.json';
+import { useEffect, useState } from 'react';
 
 const Inicio = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/Wuildermoon/alura-cinema-api/videos')
+      .then((response) => response.json())
+      .then((data) => {
+        setVideos(data);
+      });
+  }, []);
+
   return (
     <>
       <Banner img="home" color="#154580" />
